@@ -1,221 +1,78 @@
-'use client';
+import React from "react";
 
-import Image from 'next/image';
-import { FaPhone, FaEnvelope } from 'react-icons/fa';
-import './styles.css';
+const students = [
+  { id: 1, nim: "220101", nama: "Ahmad", gender: "Laki-laki", prodi: "Informatika", kelas: "TI-1A", semester: 2, alamat: "Jakarta", hobby: "Coding", citacita: "Software Engineer" },
+  { id: 2, nim: "220102", nama: "Budi", gender: "Laki-laki", prodi: "Sistem Informasi", kelas: "SI-2B", semester: 4, alamat: "Bandung", hobby: "Gaming", citacita: "Game Developer" },
+  { id: 3, nim: "220103", nama: "Cici", gender: "Perempuan", prodi: "Teknik Elektro", kelas: "TE-1C", semester: 2, alamat: "Surabaya", hobby: "Membaca", citacita: "AI Researcher" },
+  { id: 4, nim: "220104", nama: "Dini", gender: "Perempuan", prodi: "Manajemen", kelas: "MN-3D", semester: 6, alamat: "Yogyakarta", hobby: "Menulis", citacita: "Entrepreneur" },
+  { id: 5, nim: "220105", nama: "Erwin", gender: "Laki-laki", prodi: "Akuntansi", kelas: "AK-4E", semester: 8, alamat: "Medan", hobby: "Olahraga", citacita: "Akuntan Publik" },
+];
 
-export default function Home() {
+const StudentTable = () => {
   return (
-    <div className="container">
-      {/* About Section */}'use client';
-
-import Image from 'next/image';
-import { FaPhone, FaEnvelope } from 'react-icons/fa';
-import './styles.css';
-
-export default function Home() {
-  return (
-    <div className="container">
-      {/* About Section */}
-      <div className="about">
-        <div className="about-text">
-          <h1>Yadi Suryana</h1>
-          <p>Front End Developer</p>
-        </div>
-        <Image
-          className="profile-img2"
-          src="/profil.jpg"
-          alt="Profile Picture"
-          width={120}
-          height={120}
-        />
-      </div>
-      
-      {/* Two Column Layout */}
-      <div className="two-column">
-        {/* Left Column */}
-        <div className="column">
-          <Section title="DATA PRIBADI">
-            <ul className="icon-list">
-              <li className="icon-item"><Image src="/nama.png" alt="Nama" width={20} height={20} /> <span>Nama: Yadi Suryana</span></li>
-              <li className="icon-item"><Image src="/status.png" alt="Status" width={20} height={20} /> <span>Tempat, tanggal lahir: Sumedang, 29 Agustus 2004</span></li>
-              <li className="icon-item"><Image src="/gender.png" alt="Gender" width={20} height={20} /> <span>Jenis Kelamin: Laki-Laki</span></li>
-              <li className="icon-item"><Image src="/alamat.png" alt="Alamat" width={20} height={20} /> <span>Alamat: Ds. Cibulakan Kec. Cimanggung Kab. Sumedang</span></li>
-              <li className="icon-item"><Image src="/agama.png" alt="Agama" width={20} height={20} /> <span>Agama: Islam</span></li>
-              <li className="icon-item"><Image src="/flag.png" alt="Kewarganegaraan" width={20} height={20} /> <span>Kewarganegaraan: Indonesia</span></li>
-              <li className="icon-item"><Image src="/status.png" alt="Status" width={20} height={20} /> <span >Status: Belum Menikah</span></li>
-            </ul>
-          </Section>
-
-          <Section title="PENDIDIKAN">
-            <ul>
-              <li>SDN Cikandang (2012 - 2017)</li>
-              <li>SMP 314 Parakanmuncang (2017 - 2020)</li>
-              <li>MA Wasilatul Huda (2020 - 2023)</li>
-              <li>Universitas Ma'soem (2023 - Sekarang)</li>
-            </ul>
-          </Section>
-
-          <Section title="HOBI">
-            <ul className="icon-list">
-              <li className="icon-item"><Image src="/book.png" alt="Membaca" width={20} height={20} /> <span>Membaca Buku</span></li>
-              <li className="icon-item"><Image src="/badminton.png" alt="Badminton" width={20} height={20} /> <span>Badminton</span></li>
-              <li className="icon-item"><Image src="/game.png" alt="Game" width={20} height={20} /> <span>Game</span></li>
-              <li className="icon-item"><Image src="/music.png" alt="Musik" width={20} height={20} /> <span>Mendengarkan Musik</span></li>
-            </ul>
-          </Section>
-        </div>
-
-        {/* Right Column */}
-        <div className="column">
-          <Section title="KEAHLIAN">
-            <ul>
-              <li>HTML & CSS</li>
-              <li>JavaScript</li>
-              <li>React & Next.js</li>
-              <li>Node.js</li>
-              <li>MySQL</li>
-              <li>Java</li>
-              <li>Git & GitHub</li>
-            </ul>
-          </Section>
-
-          <Section title="ORGANISASI">
-            <ul>
-              <li>Sekretaris OSIS MA Wasilatul Huda</li>
-              <li>Anggota Pramuka MA Wasilatul Huda</li>
-              <li>Pengurus Karsawasa (Karya Santri Wasilatul Huda)</li>
-              <li>Anggota UKM Badminton Universitas Ma'soem</li>
-            </ul>
-          </Section>
-
-          <Section title="LAYANAN">
-            <ul>
-              <li>UI/UX Design</li>
-              <li>Web Development</li>
-            </ul>
-          </Section>
-        </div>
-      </div>
-
-      {/* Contact Section */}
-      <div className="contact">
-        <h2>HUBUNGI SAYA</h2>
-        <p>
-          <FaEnvelope /> ydisryna@gmail.com
+    <div className="flex justify-center items-center min-h-screen bg-white text-black p-4">
+      <div className="w-full max-w-6xl">
+        <h1 className="text-3xl font-bold text-center mb-4">Data Mahasiswa</h1>
+        <p className="text-center text-lg mb-6">
+          Latihan Dual UI: Tabel untuk desktop (≥1024px), Grid untuk mobile.
         </p>
-        <p>
-          <FaPhone /> +62 896 3002 4907
-        </p>
+
+        {/* Mobile Grid (< 1024px) */}
+        <div className="block lg:hidden grid gap-4">
+          {students.map((student) => (
+            <div key={student.id} className="border border-black p-4 rounded-lg shadow-md bg-white">
+              <p><strong>No:</strong> {student.id}</p>
+              <p><strong>NIM:</strong> {student.nim}</p>
+              <p><strong>Nama:</strong> {student.nama}</p>
+              <p><strong>Gender:</strong> {student.gender}</p>
+              <p><strong>Prodi:</strong> {student.prodi}</p>
+              <p><strong>Kelas:</strong> {student.kelas}</p>
+              <p><strong>Semester:</strong> {student.semester}</p>
+              <p><strong>Alamat:</strong> {student.alamat}</p>
+              <p><strong>Hobby:</strong> {student.hobby}</p>
+              <p><strong>Cita-cita:</strong> {student.citacita}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table (≥ 1024px) */}
+        <div className="hidden lg:block overflow-x-auto">
+          <table className="w-full border border-black shadow-lg">
+            <thead className="bg-black text-white">
+              <tr>
+                <th className="border border-white p-2">No</th>
+                <th className="border border-white p-2">NIM</th>
+                <th className="border border-white p-2">Nama</th>
+                <th className="border border-white p-2">Gender</th>
+                <th className="border border-white p-2">Prodi</th>
+                <th className="border border-white p-2">Kelas</th>
+                <th className="border border-white p-2">Semester</th>
+                <th className="border border-white p-2">Alamat</th>
+                <th className="border border-white p-2">Hobby</th>
+                <th className="border border-white p-2">Cita-cita</th>
+              </tr>
+            </thead>
+            <tbody>
+              {students.map((student) => (
+                <tr key={student.id} className="border border-black text-center">
+                  <td className="border border-black p-2">{student.id}</td>
+                  <td className="border border-black p-2">{student.nim}</td>
+                  <td className="border border-black p-2">{student.nama}</td>
+                  <td className="border border-black p-2">{student.gender}</td>
+                  <td className="border border-black p-2">{student.prodi}</td>
+                  <td className="border border-black p-2">{student.kelas}</td>
+                  <td className="border border-black p-2">{student.semester}</td>
+                  <td className="border border-black p-2">{student.alamat}</td>
+                  <td className="border border-black p-2">{student.hobby}</td>
+                  <td className="border border-black p-2">{student.citacita}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-const Section = ({ title, children }) => (
-  <div className="section">
-    <h2>{title}</h2>
-    <div className="content-box">{children}</div>
-  </div>
-); 
-      <div className="about">
-        <div className="about-text">
-          <h1>Yadi Suryana</h1>
-          <p>Front End Developer</p>
-        </div>
-        <Image
-          className="profile-img2"
-          src="/profil.jpg"
-          alt="Profile Picture"
-          width={120}
-          height={120}
-        />
-      </div>
-      
-      {/* Two Column Layout */}
-      <div className="two-column">
-        {/* Left Column */}
-        <div className="column">
-          <Section title="DATA PRIBADI">
-            <ul className="icon-list">
-              <li className="icon-item"><Image src="/nama.png" alt="Nama" width={20} height={20} /> <span>Nama: Yadi Suryana</span></li>
-              <li className="icon-item"><Image src="/status.png" alt="Status" width={20} height={20} /> <span>Tempat, tanggal lahir: Sumedang, 29 Agustus 2004</span></li>
-              <li className="icon-item"><Image src="/gender.png" alt="Gender" width={20} height={20} /> <span>Jenis Kelamin: Laki-Laki</span></li>
-              <li className="icon-item"><Image src="/alamat.png" alt="Alamat" width={20} height={20} /> <span>Alamat: Ds. Cibulakan Kec. Cimanggung Kab. Sumedang</span></li>
-              <li className="icon-item"><Image src="/agama.png" alt="Agama" width={20} height={20} /> <span>Agama: Islam</span></li>
-              <li className="icon-item"><Image src="/flag.png" alt="Kewarganegaraan" width={20} height={20} /> <span>Kewarganegaraan: Indonesia</span></li>
-              <li className="icon-item"><Image src="/status.png" alt="Status" width={20} height={20} /> <span >Status: Belum Menikah</span></li>
-            </ul>
-          </Section>
-
-          <Section title="PENDIDIKAN">
-            <ul>
-              <li>SDN Cikandang (2012 - 2017)</li>
-              <li>SMP 314 Parakanmuncang (2017 - 2020)</li>
-              <li>MA Wasilatul Huda (2020 - 2023)</li>
-              <li>Universitas Ma'soem (2023 - Sekarang)</li>
-            </ul>
-          </Section>
-
-          <Section title="HOBI">
-            <ul className="icon-list">
-              <li className="icon-item"><Image src="/book.png" alt="Membaca" width={20} height={20} /> <span>Membaca Buku</span></li>
-              <li className="icon-item"><Image src="/badminton.png" alt="Badminton" width={20} height={20} /> <span>Badminton</span></li>
-              <li className="icon-item"><Image src="/game.png" alt="Game" width={20} height={20} /> <span>Game</span></li>
-              <li className="icon-item"><Image src="/music.png" alt="Musik" width={20} height={20} /> <span>Mendengarkan Musik</span></li>
-            </ul>
-          </Section>
-        </div>
-
-        {/* Right Column */}
-        <div className="column">
-          <Section title="KEAHLIAN">
-            <ul>
-              <li>HTML & CSS</li>
-              <li>JavaScript</li>
-              <li>React & Next.js</li>
-              <li>Node.js</li>
-              <li>MySQL</li>
-              <li>Java</li>
-              <li>Git & GitHub</li>
-            </ul>
-          </Section>
-
-          <Section title="ORGANISASI">
-            <ul>
-              <li>Sekretaris OSIS MA Wasilatul Huda</li>
-              <li>Anggota Pramuka MA Wasilatul Huda</li>
-              <li>Pengurus Karsawasa (Karya Santri Wasilatul Huda)</li>
-              <li>Anggota UKM Badminton Universitas Ma'soem</li>
-            </ul>
-          </Section>
-
-          <Section title="LAYANAN">
-            <ul>
-              <li>UI/UX Design</li>
-              <li>Web Development</li>
-            </ul>
-          </Section>
-        </div>
-      </div>
-
-      {/* Contact Section */}
-      <div className="contact">
-        <h2>HUBUNGI SAYA</h2>
-        <p>
-          <FaEnvelope /> ydisryna@gmail.com
-        </p>
-        <p>
-          <FaPhone /> +62 896 3002 4907
-        </p>
-      </div>
-    </div>
-  );
-}
-
-const Section = ({ title, children }) => (
-  <div className="section">
-    <h2>{title}</h2>
-    <div className="content-box">{children}</div>
-  </div>
-); 
+export default StudentTable;
